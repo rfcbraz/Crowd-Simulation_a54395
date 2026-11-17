@@ -16,6 +16,8 @@ public class DropCylinder : MonoBehaviour
         agents = GameObject.FindGameObjectsWithTag("agent");
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -34,11 +36,11 @@ public class DropCylinder : MonoBehaviour
             {
               Instantiate(obstacle, hitInfo.point, obstacle.transform.rotation);  
 
-            //foreach(GameObject a in agents)
-             //   {
-                    
+            foreach(GameObject a in agents)
+                {
+                    a.GetComponent<AIControl>().DetectNewObstacle(hitInfo.point);   
 
-            //    }
+                }
 
             }
         }
