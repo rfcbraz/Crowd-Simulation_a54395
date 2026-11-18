@@ -11,6 +11,8 @@ public int numFish = 20;
 public GameObject[] allFish;
 public Vector3 swimLimits = new Vector3 (5,5,5);
 
+public Vector3 goalPos = Vector3.zero;
+
 [Header ("Fish Settings")]
 [Range (0.0f, 5.0f)]
 public float minSpeed;
@@ -37,11 +39,20 @@ public float rotationSpeed;
 
         }
         FM = this;
+        goalPos = this.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Random.RandomRange(0,100) <10)
+        {
+            goalPos = this.transform.position + new Vector3(Random.Range(-swimLimits.x, swimLimits.x),
+                                                                Random.Range(-swimLimits.y, swimLimits.y),
+                                                                Random.Range(-swimLimits.z, swimLimits.z));
+                                                        
+            
+                    
+        }
     }
 }
